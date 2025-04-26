@@ -1,0 +1,24 @@
+{
+    "name": "slim4/vite",
+    "description": "Simple Vite integration for Slim 4 framework",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Slim4\\Vite\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.4|^8.0",
+        "responsive-sk/slim4-root": "^1.0",
+        "twig/twig": "^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5",
+        "mockery/mockery": "^1.4"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:unit": "phpunit --testsuite=Unit"
+    }
+}
