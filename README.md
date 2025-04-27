@@ -1,11 +1,11 @@
-# Slim4 Vite Integration
+# ResponsiveSk Vite Integration
 
 A simple and lightweight integration of Vite with Slim 4 framework.
 
 ## Installation
 
 ```bash
-composer require slim4/vite
+composer require responsive-sk/vite
 ```
 
 ## Usage
@@ -13,8 +13,8 @@ composer require slim4/vite
 ### Register the service in your container
 
 ```php
-use Slim4\Vite\ViteService;
-use Slim4\Vite\TwigExtension;
+use ResponsiveSk\Vite\ViteService;
+use ResponsiveSk\Vite\TwigExtension;
 use Slim4\Root\PathsInterface;
 
 // In your container definitions
@@ -63,8 +63,19 @@ $container->extend(Twig::class, function ($twig, $container) {
 {# Get URL for an image #}
 <img src="{{ vite_image('logo.png') }}" alt="Logo">
 
-{# Get URL for an image with custom resource path and placeholder #}
-<img src="{{ vite_image('hero.jpg', 'resources/assets/images', 'default.jpg') }}" alt="Hero">
+{# Get URL for an image with custom resource path #}
+<img src="{{ vite_image('hero.jpg', 'resources/assets/images') }}" alt="Hero">
+
+{# Get URL for an image with custom resource path and placeholder (fallback if image not found) #}
+<img src="{{ vite_image('hero.jpg', 'resources/assets/images', 'half-sphere.svg') }}" alt="Hero">
+
+{# Handle missing images gracefully #}
+{% set image_url = vite_image('missing.jpg') %}
+{% if image_url %}
+    <img src="{{ image_url }}" alt="Image">
+{% else %}
+    <div class="placeholder">Image not found</div>
+{% endif %}
 
 {# Get URL for a font #}
 <style>
@@ -92,7 +103,7 @@ The `ViteService` constructor accepts the following parameters:
 - `asset(string $entry): string` - Get the path to an asset
 - `entryLinkTags(string $entry): string` - Generate link tags for CSS files from an entry
 - `entryScriptTags(string $entry): string` - Generate script tags for JS files from an entry
-- `image(string $path, string $resourcePath = 'resources/images', string $placeholder = 'placeholder.jpg'): string` - Get the path to an image
+- `image(string $path, string $resourcePath = 'resources/images', ?string $placeholder = null): ?string` - Get the path to an image, returns null if image not found and no placeholder specified
 - `font(string $path): string` - Get the path to a font
 - `getManifest(): array` - Get the raw manifest data
 
@@ -101,7 +112,7 @@ The `ViteService` constructor accepts the following parameters:
 - `vite_asset(string $entry): string` - Get the path to an asset
 - `vite_entry_link_tags(string $entry): string` - Generate link tags for CSS files from an entry
 - `vite_entry_script_tags(string $entry): string` - Generate script tags for JS files from an entry
-- `vite_image(string $path, string $resourcePath = 'resources/images', string $placeholder = 'placeholder.jpg'): string` - Get the path to an image
+- `vite_image(string $path, string $resourcePath = 'resources/images', ?string $placeholder = null): ?string` - Get the path to an image, returns null if image not found and no placeholder specified
 - `vite_font(string $path): string` - Get the path to a font
 - `vite_css(string $entry): string` - Alias for vite_entry_link_tags (legacy)
 - `vite_js(string $entry): string` - Alias for vite_entry_script_tags (legacy)
@@ -109,4 +120,4 @@ The `ViteService` constructor accepts the following parameters:
 ## License
 
 MIT
-# slim4-vite
+

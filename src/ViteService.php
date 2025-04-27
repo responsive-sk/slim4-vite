@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Slim4\Vite;
+namespace ResponsiveSk\Vite;
 
 use Slim4\Root\PathsInterface;
 
@@ -245,14 +245,14 @@ class ViteService
      *
      * @param string $path Image path
      * @param string $resourcePath Path to the resource in the source directory
-     * @param string $placeholder Placeholder image to use if the image is not found
-     * @return string Image URL
+     * @param string|null $placeholder Optional placeholder image to use if the image is not found (null for no placeholder)
+     * @return string|null Image URL or null if image not found and no placeholder specified
      */
     public function image(
         string $path,
         string $resourcePath = 'resources/images',
-        string $placeholder = 'placeholder.jpg'
-    ): string {
+        ?string $placeholder = null
+    ): ?string {
         if ($this->isDev) {
             return $this->devServerUrl . '/' . $resourcePath . '/' . $path;
         }
@@ -267,6 +267,11 @@ class ViteService
         $imagePath = '/' . $this->assetDirectories['images'] . '/' . $path;
         if (file_exists($this->publicPath . $imagePath)) {
             return $imagePath;
+        }
+
+        // If no placeholder is specified, return null
+        if ($placeholder === null) {
+            return null;
         }
 
         // Try to find the placeholder in the manifest

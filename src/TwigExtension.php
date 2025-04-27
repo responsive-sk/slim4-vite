@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Slim4\Vite;
+namespace ResponsiveSk\Vite;
 
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -48,9 +48,10 @@ class TwigExtension extends AbstractExtension
 
     public function image(
         string $path,
-        string $resourcePath = 'resources/images'string $placeholder = 'placeholder.jpg'
-    ): string {
-        return $this->viteService->image($path, $resourcePath);
+        string $resourcePath = 'resources/images',
+        ?string $placeholder = null
+    ): ?string {
+        return $this->viteService->image($path, $resourcePath, $placeholder);
     }
 
     public function font(string $path): string

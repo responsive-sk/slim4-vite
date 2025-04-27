@@ -1,11 +1,26 @@
 {
-    "name": "slim4/vite",
+    "name": "responsive-sk/vite",
     "description": "Simple Vite integration for Slim 4 framework",
+    "version": "1.0.0",
     "type": "library",
     "license": "MIT",
+    "keywords": ["slim", "slim4", "vite", "twig", "assets", "frontend"],
+    "authors": [
+        {
+            "name": "Responsive SK",
+            "email": "info@responsive.sk",
+            "homepage": "https://responsive.sk"
+        }
+    ],
+    "homepage": "https://github.com/responsive-sk/vite",
     "autoload": {
         "psr-4": {
-            "Slim4\\Vite\\": "src/"
+            "ResponsiveSk\\Vite\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ResponsiveSk\\Vite\\Tests\\": "tests/"
         }
     },
     "require": {
@@ -20,5 +35,14 @@
     "scripts": {
         "test": "phpunit",
         "test:unit": "phpunit --testsuite=Unit"
-    }
+    },
+    "support": {
+        "issues": "https://github.com/responsive-sk/vite/issues",
+        "source": "https://github.com/responsive-sk/vite"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
