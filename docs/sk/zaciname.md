@@ -2,7 +2,7 @@
 
 ## Prehľad
 
-Slim4 Vite poskytuje integráciu medzi Vite.js a Slim 4 Frameworkom, ponúkajúc:
+Slim4 Vite poskytuje integráciu medzi Vite.js a Slim 4 Framework:
 
 - Hot Module Replacement (HMR) počas vývoja
 - Verziovanie assetov v produkcii
