@@ -49,11 +49,19 @@ class TwigExtensionTest extends TestCase
         $this->viteServiceMock->shouldReceive('asset')
             ->once()
             ->with('resources/js/app.js')
+<<<<<<< HEAD
             ->andReturn('/assets/assets/app-ABC123.js');
 
         $result = $this->twigExtension->asset('resources/js/app.js');
 
         $this->assertEquals('/assets/assets/app-ABC123.js', $result);
+=======
+            ->andReturn('/build/assets/app-ABC123.js');
+
+        $result = $this->twigExtension->asset('resources/js/app.js');
+
+        $this->assertEquals('/build/assets/app-ABC123.js', $result);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 
     public function testEntryLinkTags(): void
@@ -61,11 +69,19 @@ class TwigExtensionTest extends TestCase
         $this->viteServiceMock->shouldReceive('entryLinkTags')
             ->once()
             ->with('resources/js/app.js')
+<<<<<<< HEAD
             ->andReturn('<link rel="stylesheet" href="/assets/assets/app-DEF456.css">');
 
         $result = $this->twigExtension->entryLinkTags('resources/js/app.js');
 
         $this->assertEquals('<link rel="stylesheet" href="/assets/assets/app-DEF456.css">', $result);
+=======
+            ->andReturn('<link rel="stylesheet" href="/build/assets/app-DEF456.css">');
+
+        $result = $this->twigExtension->entryLinkTags('resources/js/app.js');
+
+        $this->assertEquals('<link rel="stylesheet" href="/build/assets/app-DEF456.css">', $result);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 
     public function testEntryScriptTags(): void
@@ -73,11 +89,19 @@ class TwigExtensionTest extends TestCase
         $this->viteServiceMock->shouldReceive('entryScriptTags')
             ->once()
             ->with('resources/js/app.js')
+<<<<<<< HEAD
             ->andReturn('<script type="module" src="/assets/assets/app-ABC123.js"></script>');
 
         $result = $this->twigExtension->entryScriptTags('resources/js/app.js');
 
         $this->assertEquals('<script type="module" src="/assets/assets/app-ABC123.js"></script>', $result);
+=======
+            ->andReturn('<script type="module" src="/build/assets/app-ABC123.js"></script>');
+
+        $result = $this->twigExtension->entryScriptTags('resources/js/app.js');
+
+        $this->assertEquals('<script type="module" src="/build/assets/app-ABC123.js"></script>', $result);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 
     public function testImage(): void
@@ -85,11 +109,19 @@ class TwigExtensionTest extends TestCase
         $this->viteServiceMock->shouldReceive('image')
             ->once()
             ->with('logo.png', 'resources/images', null)
+<<<<<<< HEAD
             ->andReturn('/assets/assets/logo-MNO345.png');
 
         $result = $this->twigExtension->image('logo.png', 'resources/images');
 
         $this->assertEquals('/assets/assets/logo-MNO345.png', $result);
+=======
+            ->andReturn('/build/assets/logo-MNO345.png');
+
+        $result = $this->twigExtension->image('logo.png', 'resources/images');
+
+        $this->assertEquals('/build/assets/logo-MNO345.png', $result);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 
     public function testImageWithPlaceholder(): void
@@ -97,11 +129,19 @@ class TwigExtensionTest extends TestCase
         $this->viteServiceMock->shouldReceive('image')
             ->once()
             ->with('logo.png', 'resources/images', 'half-sphere.svg')
+<<<<<<< HEAD
             ->andReturn('/assets/assets/logo-MNO345.png');
 
         $result = $this->twigExtension->image('logo.png', 'resources/images', 'half-sphere.svg');
 
         $this->assertEquals('/assets/assets/logo-MNO345.png', $result);
+=======
+            ->andReturn('/build/assets/logo-MNO345.png');
+
+        $result = $this->twigExtension->image('logo.png', 'resources/images', 'half-sphere.svg');
+
+        $this->assertEquals('/build/assets/logo-MNO345.png', $result);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 
     public function testImageNotFound(): void
@@ -121,10 +161,18 @@ class TwigExtensionTest extends TestCase
         $this->viteServiceMock->shouldReceive('font')
             ->once()
             ->with('custom.woff2')
+<<<<<<< HEAD
             ->andReturn('/assets/assets/custom-PQR678.woff2');
 
         $result = $this->twigExtension->font('custom.woff2');
 
         $this->assertEquals('/assets/assets/custom-PQR678.woff2', $result);
+=======
+            ->andReturn('/build/assets/custom-PQR678.woff2');
+
+        $result = $this->twigExtension->font('custom.woff2');
+
+        $this->assertEquals('/build/assets/custom-PQR678.woff2', $result);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 }

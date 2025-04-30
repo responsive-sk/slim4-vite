@@ -14,7 +14,7 @@ Slim4 Vite poskytuje integráciu medzi Vite.js a Slim 4 Frameworkom, ponúkajúc
 
 1. Inštalácia balíka:
 ```bash
-composer require slim4/vite
+composer require responsive-sk/slim4-vite
 ```
 
 2. Inštalácia potrebných npm balíkov:
@@ -36,4 +36,8 @@ return function (App $app) {
 use Slim4\Vite\TwigExtension\ViteExtension;
 
 $twig->addExtension(new ViteExtension());
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50

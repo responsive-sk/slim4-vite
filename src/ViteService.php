@@ -43,6 +43,7 @@ class ViteService
         $this->isDev = $isDev;
         $this->devServerUrl = $devServerUrl;
         $this->assetDirectories = $assetDirectories;
+<<<<<<< HEAD
         $this->theme = $theme;
 
         // If theme is set, adjust the build directory
@@ -52,6 +53,28 @@ class ViteService
 
         // Load the manifest
         $this->loadManifest();
+=======
+
+        // Try to find manifest in different locations
+        $possiblePaths = [
+            $this->publicPath . '/' . $buildDirectory . '/manifest.json',
+            $this->publicPath . '/' . $buildDirectory . '/.vite/manifest.json',
+        ];
+
+        foreach ($possiblePaths as $path) {
+            if (file_exists($path)) {
+                $manifestContent = file_get_contents($path);
+                if ($manifestContent !== false) {
+                    $decodedManifest = json_decode($manifestContent, true);
+                    if (json_last_error() === JSON_ERROR_NONE) {
+                        $this->manifest = $decodedManifest;
+                        $this->manifestPath = $path;
+                        break;
+                    }
+                }
+            }
+        }
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 
     /**
@@ -305,6 +328,7 @@ class ViteService
     }
 
     /**
+<<<<<<< HEAD
      * Set the theme
      *
      * @param string|null $theme Theme name
@@ -365,6 +389,8 @@ class ViteService
     }
 
     /**
+=======
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
      * Get the raw manifest data
      *
      * @return array Manifest data

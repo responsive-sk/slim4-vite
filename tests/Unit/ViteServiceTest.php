@@ -79,16 +79,28 @@ class ViteServiceTest extends TestCase
 
     public function testAssetInProductionMode(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', false);
 
         $result = $viteService->asset('resources/js/app.js');
 
         $this->assertEquals('/assets/assets/app-ABC123.js', $result);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', false);
+
+        $result = $viteService->asset('resources/js/app.js');
+
+        $this->assertEquals('/build/assets/app-ABC123.js', $result);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 
     public function testAssetInDevelopmentMode(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', true);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', true);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
 
         $result = $viteService->asset('resources/js/app.js');
 
@@ -97,16 +109,28 @@ class ViteServiceTest extends TestCase
 
     public function testEntryLinkTagsInProductionMode(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', false);
 
         $result = $viteService->entryLinkTags('resources/js/app.js');
 
         $this->assertStringContainsString('<link rel="stylesheet" href="/assets/assets/app-DEF456.css">', $result);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', false);
+
+        $result = $viteService->entryLinkTags('resources/js/app.js');
+
+        $this->assertStringContainsString('<link rel="stylesheet" href="/build/assets/app-DEF456.css">', $result);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 
     public function testEntryLinkTagsInDevelopmentMode(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', true);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', true);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
 
         $result = $viteService->entryLinkTags('resources/js/app.js');
 
@@ -115,17 +139,30 @@ class ViteServiceTest extends TestCase
 
     public function testEntryScriptTagsInProductionMode(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', false);
 
         $result = $viteService->entryScriptTags('resources/js/app.js');
 
         $this->assertStringContainsString('<script type="module" src="/assets/assets/_chunk-GHI789-JKL012.js"></script>', $result);
         $this->assertStringContainsString('<script type="module" src="/assets/assets/app-ABC123.js"></script>', $result);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', false);
+
+        $result = $viteService->entryScriptTags('resources/js/app.js');
+
+        $this->assertStringContainsString('<script type="module" src="/build/assets/_chunk-GHI789-JKL012.js"></script>', $result);
+        $this->assertStringContainsString('<script type="module" src="/build/assets/app-ABC123.js"></script>', $result);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 
     public function testEntryScriptTagsInDevelopmentMode(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', true);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', true);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
 
         $result = $viteService->entryScriptTags('resources/js/app.js');
 
@@ -134,16 +171,28 @@ class ViteServiceTest extends TestCase
 
     public function testImageInProductionMode(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', false);
 
         $result = $viteService->image('logo.png', 'resources/images');
 
         $this->assertEquals('/assets/assets/logo-MNO345.png', $result);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', false);
+
+        $result = $viteService->image('logo.png', 'resources/images');
+
+        $this->assertEquals('/build/assets/logo-MNO345.png', $result);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 
     public function testImageInDevelopmentMode(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', true);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', true);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
 
         $result = $viteService->image('logo.png', 'resources/images');
 
@@ -152,7 +201,11 @@ class ViteServiceTest extends TestCase
 
     public function testImageWithPlaceholder(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', false);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', false);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
 
         // Test with a non-existent image but with placeholder
         $result = $viteService->image('non-existent.png', 'resources/images', 'half-sphere.svg');
@@ -162,7 +215,11 @@ class ViteServiceTest extends TestCase
 
     public function testImageWithoutPlaceholder(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', false);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', false);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
 
         // Test with a non-existent image and no placeholder
         $result = $viteService->image('non-existent.png', 'resources/images', null);
@@ -172,16 +229,28 @@ class ViteServiceTest extends TestCase
 
     public function testFontInProductionMode(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', false);
 
         $result = $viteService->font('custom.woff2');
 
         $this->assertEquals('/assets/assets/custom-PQR678.woff2', $result);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', false);
+
+        $result = $viteService->font('custom.woff2');
+
+        $this->assertEquals('/build/assets/custom-PQR678.woff2', $result);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
     }
 
     public function testFontInDevelopmentMode(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', true);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', true);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
 
         $result = $viteService->font('custom.woff2');
 
@@ -190,7 +259,11 @@ class ViteServiceTest extends TestCase
 
     public function testGetManifest(): void
     {
+<<<<<<< HEAD
         $viteService = new ViteService($this->pathsMock, 'assets', false);
+=======
+        $viteService = new ViteService($this->pathsMock, 'build', false);
+>>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
 
         $result = $viteService->getManifest();
 
