@@ -8,12 +8,22 @@ use Slim4\Root\PathsInterface;
 
 class ViteService
 {
+    /**
+     * @var array<string, mixed> The Vite manifest
+     */
     private array $manifest = [];
-    private string $manifestPath;
+    /**
+     * @var string Path to the manifest file
+     * @phpstan-ignore-next-line
+     */
+    private string $manifestPath = '';
     private string $publicPath;
     private string $buildDirectory;
     private bool $isDev;
     private string $devServerUrl;
+    /**
+     * @var array<string, string> Asset directories mapping
+     */
     private array $assetDirectories;
     private ?string $theme = null;
 
@@ -24,7 +34,7 @@ class ViteService
      * @param string $buildDirectory Build directory relative to public path (default: 'assets')
      * @param bool $isDev Whether to use dev server (default: false)
      * @param string $devServerUrl Dev server URL (default: 'http://localhost:5173')
-     * @param array $assetDirectories Directories where assets are stored
+     * @param array<string, string> $assetDirectories Directories where assets are stored
      * @param string|null $theme Theme name (default: null)
      */
     public function __construct(
@@ -237,7 +247,8 @@ class ViteService
      *
      * @param string $path Image path
      * @param string $resourcePath Path to the resource in the source directory
-     * @param string|null $placeholder Optional placeholder image to use if the image is not found (null for no placeholder)
+     * @param string|null $placeholder Optional placeholder image to use if the image is not found
+     *                                 (null for no placeholder)
      * @return string|null Image URL or null if image not found and no placeholder specified
      */
     public function image(
@@ -305,7 +316,6 @@ class ViteService
     }
 
     /**
-<<<<<<< HEAD
      * Set the theme
      *
      * @param string|null $theme Theme name
@@ -355,7 +365,7 @@ class ViteService
                 $manifestContent = file_get_contents($path);
                 if ($manifestContent !== false) {
                     $decodedManifest = json_decode($manifestContent, true);
-                    if (json_last_error() === JSON_ERROR_NONE) {
+                    if (json_last_error() === JSON_ERROR_NONE && is_array($decodedManifest)) {
                         $this->manifest = $decodedManifest;
                         $this->manifestPath = $path;
                         break;
@@ -366,11 +376,9 @@ class ViteService
     }
 
     /**
-=======
->>>>>>> 5b53ad4c3b27791786b4c9ae79697f3f047fce50
      * Get the raw manifest data
      *
-     * @return array Manifest data
+     * @return array<string, mixed> Manifest data
      */
     public function getManifest(): array
     {
