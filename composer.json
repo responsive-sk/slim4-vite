@@ -1,7 +1,7 @@
 {
     "name": "responsive-sk/slim4-vite",
     "description": "Vite integration for Slim 4 framework",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "type": "library",
     "license": "MIT",
     "keywords": ["slim", "slim4", "vite", "twig", "plates", "latte", "blade", "assets", "frontend"],
